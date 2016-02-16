@@ -83,8 +83,9 @@ dd iflag=dsync oflag=dsync if=${E4412_UBOOT} of=$1 seek=$uboot_position
 #<TrustZone S/W fusing>
 echo "---------------------------------------"
 echo "TrustZone S/W fusing"
-dd iflag=dsync oflag=dsync if=./E4412_tzsw.bin of=$1 seek=$tzsw_position
+#dd iflag=dsync oflag=dsync if=./E4412_tzsw.bin of=$1 seek=$tzsw_position
 
+echo "ignore TrustZone S/W fusing"
 #<flush to disk>
 sync
 
