@@ -48,7 +48,7 @@ fi
 
 {
 echo 1,9,0x0C,*
-echo ,,L
+echo 9,,L
 } | sfdisk -D -H 255 -S 63 -C $CYLINDERS --force $SD_DRIVE
 
 sleep 10
