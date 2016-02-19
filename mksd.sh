@@ -72,3 +72,27 @@ echo "await formatting ..."
 sleep 2
 cd sd_fuse/tiny4412/
 ./sd_fusing.sh $SD_DRIVE
+
+
+rm -rf /mnt/boot 
+rm -rf /mnt/rootfs 
+
+mkdir /mnt/boot
+mkdir /mnt/rootfs
+mount ${PARTITION1} /mnt/boot
+mount ${PARTITION2} /mnt/rootfs
+
+cp ../../../ramdisk-u.img /mnt/boot/
+cp ../../../linux-3.5/arch/arm/boot/zImage /mnt/boot/
+
+
+cp -raf ../../../source/busybox-1.22.1/_install/* /mnt/rootfs/
+cp -raf ../../../super4412_rootfs/etc /mnt/rootfs/
+mkdir var tmp sys proc dev lib
+
+sync
+sync
+umount ${PARTITION1}
+umount ${PARTITION2}
+rm -rf /mnt/boot 
+rm -rf /mnt/rootfs 
