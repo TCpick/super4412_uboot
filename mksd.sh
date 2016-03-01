@@ -86,10 +86,12 @@ cp ../../../ramdisk-u.img /mnt/boot/
 cp ../../../linux-3.5/arch/arm/boot/zImage /mnt/boot/
 
 
-cp -raf ../../../source/busybox-1.22.1/_install/* /mnt/rootfs/
-cp -raf ../../../super4412_rootfs/etc /mnt/rootfs/
-mkdir var tmp sys proc dev lib
-
+#cp -raf ../../../source/busybox-1.22.1/_install/* /mnt/rootfs/
+#cp -raf ../../../super4412_rootfs/etc /mnt/rootfs/
+cp -raf ../../../super4412_rootfs/* /mnt/rootfs/
+cd /mnt/rootfs
+#mkdir var tmp sys proc dev lib
+cd -
 sync
 sync
 umount ${PARTITION1}
